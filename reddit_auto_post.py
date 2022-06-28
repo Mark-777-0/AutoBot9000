@@ -31,7 +31,7 @@ driver = webdriver.Chrome(service=service,options=option)
 
 driver.set_window_size(1920, 1080)
 
-# YOUR INPUTS, these all come from a env file that is gitignored
+# YOUR INPUTS, these all come from the env file 
 
 variables= env.Variables() 
 username= variables.username
@@ -39,6 +39,8 @@ password= variables.password
 website= variables.website
 your_subreddit= variables.your_subreddit
 title =  variables.title
+
+subreddits_to_crosspost_list= ['memes','funny','catmemes']
 #-------
 
 
