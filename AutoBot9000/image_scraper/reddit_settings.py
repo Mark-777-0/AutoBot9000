@@ -1,7 +1,5 @@
 import os
 import json
-import tkMessageBox
-
 
 class Settings(object):
     basename = 'config.json'

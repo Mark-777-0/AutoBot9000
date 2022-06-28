@@ -8,7 +8,7 @@ There are two parts to this bot, the auto_poster and the image_scraper.
 
 Head to the env.py and fill in your Data, reddit username, password, title, and subreddit
 
-next run the reddit_auto_post.py and it should begin to cross post your subreddit to a list of 
+next run the reddit_auto_post.py and it should begin to cross post your subreddit to a list of  
 
 
 <h2> Reddit Scraper</h2>
