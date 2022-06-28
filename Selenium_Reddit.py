@@ -198,5 +198,6 @@ def automated_cross_posts(title,folder_indices,x_sub_list):
     #close driver
     driver.close()
 
-
+if name == "__main__":
+    automated_cross_posts(title,1,your_subreddit)
 
