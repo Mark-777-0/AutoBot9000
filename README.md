@@ -1,18 +1,18 @@
 <h1>Reddit AutoBot9000 </h1>
 
-![reddit]('https://github.com/Mark-777-0/AutoBot9000/blob/main/AutoBot9000/img/example.gif')
+![reddit](https://github.com/Mark-777-0/AutoBot9000/blob/main/AutoBot9000/img/example.gif)
 
 There are two parts to this bot, the auto_poster and the image_scraper. 
 
 <h2> Selenium Poster</h2>
-=======
+
 Head to the env.py and fill in your Data, reddit username, password, title, and subreddit
 
 next run the reddit_auto_post.py and it should begin to cross post your subreddit to a list of 
 
 
 <h2> Reddit Scraper</h2>
-=======
+
 
 <h2> Install Dependencies and Check Environment </h2>
 
