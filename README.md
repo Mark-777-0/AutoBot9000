@@ -20,24 +20,9 @@ next run the reddit_auto_post.py and it should begin to cross post your subreddi
 python --version
 ```
 
--Updated your OS to the latest system, and make sure you are running a version of python that works with Tkinter
-
+-Updated your OS to the latest system, and make sure you are running a version of python that works with PRAW
 ```
- Pip install Tk
-```
-```
- Pip install tkinter
-```
-```
- Pip install python-tk
-```
-
-```
- Pip install python3-tk
-```
-
-```
- Pip install tk-dev
+pip install praw
 ```
 
 ```
@@ -57,7 +42,4 @@ use your saved settings. Feel free to schedule it to run dailt.
 The AutoBot9000 will allow you to download the top images from any subreddit. Specifying file formats and directories.
 
 Uses Python Reddit API Wrapper: https://github.com/praw-dev/praw
-```
-pip install praw
-```
 
