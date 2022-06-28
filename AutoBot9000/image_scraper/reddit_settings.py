@@ -2,8 +2,10 @@ import os
 import json
 import tkMessageBox
 
+
 class Settings(object):
     basename = 'config.json'
+
     def __init__(self, directory=None):
         self.directory = self._get_directory(directory)
         self.data = self._init_data()
@@ -12,7 +14,7 @@ class Settings(object):
         """Load data or, create new data if there is no save file."""
         self.load()
         return self.data
-        
+
     def _get_directory(self, dirname):
         """Return the path of the directory, or the current dir if None."""
         if dirname is None:
@@ -31,7 +33,7 @@ class Settings(object):
     @property
     def groupings(self):
         return self.data['groupings'].values()
-    
+
     def reset(self, save=True):
         self.data = {"groupings": {},
                      "user_agent": 'User-Agent: daily subreddit top-submission scraper v0.1 by /u/bluquar'}
@@ -53,20 +55,23 @@ class Settings(object):
 
     def save(self):
         data_dict = dict(self.data)
-        data_dict['groupings'] = [grouping.serial for grouping in self.groupings]
+        data_dict['groupings'] = [
+            grouping.serial for grouping in self.groupings]
         with open(self.filename, 'w') as f:
             f.write(json.dumps(data_dict, indent=1))
 
     def parse(self, raw_data):
         groupings = raw_data['groupings']
-        groupings = {grouping['directory_name']: Grouping(grouping) for grouping in groupings}
+        groupings = {grouping['directory_name']: Grouping(
+            grouping) for grouping in groupings}
         raw_data['groupings'] = groupings
-        return raw_data        
+        return raw_data
 
     def add_grouping(self, dirname):
         existing_dirnames = set([d.name for d in self.groupings])
         if dirname in existing_dirnames:
-            tkMessageBox.askokcancel("", "You have already entered that directory.")
+            tkMessageBox.askokcancel(
+                "", "You have already entered that directory.")
             return None
         existing_shortnames = set([d.shortname for d in self.groupings])
         parts = dirname.split(os.path.sep)
@@ -94,7 +99,8 @@ class Settings(object):
             for grouping in self.groupings:
                 if grouping.shortname == index:
                     return grouping
-    
+
+
 class Grouping(object):
     def __init__(self, data):
         self.data = {'directory_name': None,
@@ -111,14 +117,15 @@ class Grouping(object):
         self.data['subreddits'] = subs
 
     def add_subreddit(self, subname):
-        self.data['subreddits'][subname] = Subreddit({'subreddit_name': subname})
+        self.data['subreddits'][subname] = Subreddit(
+            {'subreddit_name': subname})
 
     def dirname_for(self, subreddit):
         if self.subdir_per_subreddit:
             return os.path.join(self.name, subreddit.name)
         else:
             return self.name
-        
+
     @property
     def serial(self):
         s = dict(self.data)
@@ -150,17 +157,18 @@ class Grouping(object):
     @property
     def subdir_per_subreddit(self):
         return self.data['subdir_per_subreddit']
+
     @subdir_per_subreddit.setter
     def subdir_per_subreddit(self, val):
         self.data['subdir_per_subreddit'] = val
 
-
     def __delitem__(self, index):
         del self.data['subreddits'][index]
-    
+
     def __getitem__(self, index):
         return (self.data['subreddits'][index] if index
                 in self.data['subreddits'] else None)
+
 
 class Subreddit(object):
     def __init__(self, data):
@@ -177,25 +185,29 @@ class Subreddit(object):
     @property
     def name(self):
         return self.data['subreddit_name']
+
     @property
     def enabled(self):
         return self.data['enabled']
+
     @property
     def num_files(self):
         return self.data['num_files']
+
     @num_files.setter
     def num_files(self, val):
         self.data['num_files'] = val
-    
+
     @property
     def file_types(self):
         return self.data['file_types']
 
     def add_file_type(self, s):
         self.data['file_types'].append(s)
+
     def rm_filetype(self, s):
         self.data['file_types'].remove(s)
-    
+
     @property
     def last_scraped(self):
         return self.data['last_scraped']
