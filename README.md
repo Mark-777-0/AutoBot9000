@@ -36,10 +36,13 @@ pip install praw
 Alter
 ```reddit_settings.py```
 to configure your settings. Afterwards when you run `python scraper.py` it will
-use your saved settings. Feel free to schedule it to run dailt.
+use your saved settings. Feel free to schedule it to run daily.
 
 
 The AutoBot9000 will allow you to download the top images from any subreddit. Specifying file formats and directories.
 
 Uses Python Reddit API Wrapper: https://github.com/praw-dev/praw
 
+Credit to chloe-47/reddit_scraper for help with the scraper section of this bot
+
+Uses Selenium: https://www.selenium.dev/documentation/
