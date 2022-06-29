@@ -9,6 +9,8 @@
 </div>
 There are two parts to this bot, the auto_poster and the image_scraper. 
 
+-image_scraper module under slow refactoring/updating
+
 <h2> Selenium Poster</h2>
 
 Head to the env.py and fill in your Data, reddit username, password, title, and subreddit
