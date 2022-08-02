@@ -4,6 +4,7 @@ import keyboard
 import pyautogui as pyg
 import time
 import env 
+import pytest
 #Chrome
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service as ChromeService
